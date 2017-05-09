@@ -5,7 +5,7 @@ properties([[$class: 'jenkins.model.BuildDiscarderProperty', strategy: [$class  
 
 node {
   checkout scm
-  def REPO = 'fastpath'
+  def REPO = 'brettm/fastpath'
   def GIT_COMMIT = sh(returnStdout: true, script: 'git rev-parse --short HEAD').trim()
   def DEPLOY_TAG = "$REPO:$GIT_COMMIT"
 
