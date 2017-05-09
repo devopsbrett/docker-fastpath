@@ -13,7 +13,10 @@ node {
       docker.build(DEPLOY_TAG)
   }
 
-  stage('test') {
-      sh("env")
+  stage('deploy to dockerhub') {
+      withDockerRegistry([credentialsId: 'dockercreds']) {
+          docker.image(DEPLOY_TAG).push()
+      }
   }
+
 }
