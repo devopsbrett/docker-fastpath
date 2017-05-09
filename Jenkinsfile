@@ -25,4 +25,8 @@ node {
       }
   }
 
+  stage('env') [
+    sh("env")
+  ]
+
 }
