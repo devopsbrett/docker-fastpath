@@ -12,4 +12,8 @@ node {
   stage('Build') {
       docker.build(DEPLOY_TAG)
   }
+
+  stage('test') {
+      sh("env")
+  }
 }
