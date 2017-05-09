@@ -16,6 +16,12 @@ node {
   stage('deploy to dockerhub') {
       withDockerRegistry([credentialsId: 'dockercreds']) {
           docker.image(DEPLOY_TAG).push()
+          if(env.BRANCH_NAME == 'develop') {
+              docker.image(DEPLOY_TAG).push('latest-snapshot')
+          }
+          if(env.BRANCH_NAME == 'master') {
+              docker.image(DEPLOY_TAG).push('latest')
+          }
       }
   }
 
