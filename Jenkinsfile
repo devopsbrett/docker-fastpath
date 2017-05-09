@@ -25,8 +25,8 @@ node {
       }
   }
 
-  stage('env') [
+  stage('env') {
     sh("env")
-  ]
+  }
 
 }
